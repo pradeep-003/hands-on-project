@@ -54,32 +54,36 @@ const Edit = () => {
   return (
     <form
       onSubmit={updateProductHandler}
-      className="flex flex-col items-center p-[5%] w-screen h-screen"
+      className="flex flex-col items-center px-4 py-8 sm:p-[5%] w-full min-h-screen"
     >
-      <h1 className="mb-5 w-1/2 text-3xl font-bold">Edit Product</h1>
+      <h1 className="mb-5 w-full sm:w-1/2 text-2xl sm:text-3xl font-bold text-center">
+        Edit Product
+      </h1>
 
       <input
         type="url"
         placeholder="Image URL"
-        className="text-sm bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-sm bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         onChange={changeHandler}
         name="image"
         value={product.image}
       />
+
       <input
         type="text"
         placeholder="Title"
-        className="text-2xl bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-lg sm:text-2xl bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         name="title"
         onChange={changeHandler}
         value={product.title}
       />
 
-      <div className="flex w-1/2 mb-3 gap-3">
+      {/* Responsive side-by-side fields */}
+      <div className="flex flex-col sm:flex-row w-full sm:w-1/2 mb-3 gap-3">
         <input
           type="text"
           placeholder="Category"
-          className="text-2xl bg-zinc-100 rounded p-3 w-1/2"
+          className="text-lg sm:text-2xl bg-zinc-100 rounded p-3 w-full"
           name="category"
           onChange={changeHandler}
           value={product.category}
@@ -87,7 +91,7 @@ const Edit = () => {
         <input
           type="number"
           placeholder="Price"
-          className="text-2xl bg-zinc-100 rounded p-3 w-1/2"
+          className="text-lg sm:text-2xl bg-zinc-100 rounded p-3 w-full"
           onChange={changeHandler}
           name="price"
           value={product.price}
@@ -96,7 +100,7 @@ const Edit = () => {
 
       <textarea
         placeholder="Description"
-        className="text-xl bg-zinc-100 rounded p-3 w-1/2 mb-3 resize-none"
+        className="text-base sm:text-xl bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3 resize-none"
         onChange={changeHandler}
         name="description"
         value={product.description}
@@ -105,7 +109,7 @@ const Edit = () => {
 
       <button
         type="submit"
-        className="text-2xl bg-zinc-100 rounded p-3 w-1/2 mb-3 active:bg-zinc-50 cursor-pointer"
+        className="text-lg sm:text-2xl bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3 active:bg-zinc-50 cursor-pointer"
       >
         Update Product
       </button>

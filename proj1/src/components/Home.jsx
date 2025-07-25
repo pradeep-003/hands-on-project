@@ -42,9 +42,7 @@ const Home = () => {
   return (
     <>
       <Nav />
-      <div
-        className={`w-[85%]  h-full  flex flex-wrap shrink-0 overflow-x-hidden overflow-y-auto`}
-      >
+      <div className="w-[75%] mx-auto h-full flex flex-wrap justify-center gap-4 overflow-x-hidden overflow-y-auto">
         {products.length === 0 ? (
           <Loading />
         ) : (
@@ -52,16 +50,18 @@ const Home = () => {
             return (
               <Link
                 to={`/details/${product.id}`}
-                className={`card overflow-y-auto overflow-x-hidden m-[2vw] shadow p-2 w-[18%] h-[35vh] border-2 rounded border-zinc-300`}
+                className="card m-2 shadow p-2 w-full sm:w-[45%] md:w-[30%] lg:w-[22%] xl:w-[18%] min-h-[35vh] border-2 rounded border-zinc-300 overflow-hidden"
                 key={index}
               >
                 <div
-                  className=" hover:scale-110 w-full h-[60%] bg-contain bg-center bg-no-repeat  "
+                  className="hover:scale-105 transition-transform duration-300 w-full h-[60%] bg-contain bg-center bg-no-repeat"
                   style={{
                     backgroundImage: `url(${product.image})`,
                   }}
                 ></div>
-                <h1 className="mt-4 text-center">{product.title}</h1>
+                <h1 className="mt-4 text-center text-sm md:text-base">
+                  {product.title}
+                </h1>
               </Link>
             );
           })

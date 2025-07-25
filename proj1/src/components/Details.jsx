@@ -21,24 +21,33 @@ const Details = () => {
   return products.length === 0 ? (
     <Loading />
   ) : (
-    <div className="w-[70%] flex items-center justify-between h-full m-auto p-[10%]">
-      <img className=" w-[20vw] " src={product.image} alt="" />
+    <div className="w-full flex flex-col md:flex-row items-center justify-between h-auto md:h-full m-auto p-6 md:p-[5%] gap-8">
+      {/* Image */}
+      <img
+        className="w-[60%] md:w-[30%] object-contain"
+        src={product.image}
+        alt={product.title}
+      />
 
-      <div className="content w-[50%]">
-        <h1 className="text-3xl leading-2xl font-semibold ">{product.title}</h1>
-        <h3 className="font-light mt-2">{product.category}</h3>
-        <h2 className="text-pink-500 mt-4">${product.price}</h2>
-        <p className="text-sm mb-6">{product.description}</p>
-        <div className="flex gap-6">
+      {/* Content */}
+      <div className="content w-full md:w-[60%]">
+        <h1 className="text-2xl md:text-3xl font-semibold">{product.title}</h1>
+        <h3 className="font-light mt-2 text-base md:text-lg">
+          {product.category}
+        </h3>
+        <h2 className="text-pink-500 mt-4 text-xl">${product.price}</h2>
+        <p className="text-sm md:text-base mb-6 mt-2">{product.description}</p>
+
+        <div className="flex gap-4 flex-wrap">
           <Link
             to={`/edit/${product.id}`}
-            className=" text-sky-600 px-4 py-2 border-1 border-zinc-200 rounded-md active:border-zinc-700"
+            className="text-sky-600 px-4 py-2 border border-zinc-200 rounded-md active:border-zinc-700"
           >
             Edit
           </Link>
           <button
             onClick={() => productDeleteHandler(product.id)}
-            className="text-pink-600 px-4 py-2 border-1 border-pink-200 rounded-md active:border-pink-700"
+            className="text-pink-600 px-4 py-2 border border-pink-200 rounded-md active:border-pink-700"
           >
             Delete
           </button>
